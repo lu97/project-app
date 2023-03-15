@@ -1,0 +1,46 @@
+
+@font-face {
+  font-family: 'Nexa-Bold';
+  src: local('Nexa-Bold'), url('./sources/fonts/Nexa Bold/Nexa-Bold.otf') format('otf');
+}
+@font-face {
+  font-family: 'IBM Plex Sans';
+  src: local('IBM-Plex-Sans'), url('./sources/fonts/IBM Plex Sans JP/IBMPlexSansJP-Light.ttf') format('ttf');
+}
+
+body{
+  font-family: IBM-Plex-Sans, serif;
+  width: 90%;
+  margin: auto;
+  color: #282c34;
+}
+a{
+  color: #282c34;
+  text-decoration: none!important;
+}
+.bottom_flex{
+  display: flex;
+  align-items: center;
+}
+.bottom_flex{
+  justify-content: center;
+}
+.bottom .title{
+  font-size: 14px;
+}
+.bottom .logo{
+  width: 30px;
+}
+.bottom{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-top: 1px solid #143302;
+  background-color: #fefeff;
+}
+@media (max-width: 750px){
+  body{
+    width: 100%;
+  }
+}

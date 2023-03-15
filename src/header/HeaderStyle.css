@@ -1,0 +1,25 @@
+.head{
+    cursor: pointer;
+    text-align: left;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 4px;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+}
+.title{
+    text-transform: uppercase;
+    margin-left: 10px;
+}
+.logo{
+    width: 50px;
+}
+.logo>img{
+    width: 100%;
+}
+.slogan{
+    font-size: 13px;
+    font-weight: lighter;
+    margin-left: 10px;
+}
