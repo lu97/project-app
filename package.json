@@ -32,7 +32,8 @@
     "test": "./node_modules/.bin/concurrently -k 'npm run server' 'npm run e2e'",
     "start_network": "npm run server",
     "server": "live-server public --host=0.0.0.0 --port=3000 --middleware=./disable-browser-cache.js",
-    "postbuild": "react-snap"
+    "postbuild": "react-snap",
+
   },
   "reactSnap": {
     "source": "dist",
