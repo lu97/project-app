@@ -19,7 +19,6 @@ class TagsComponent extends React.Component {
         let tagsCount = this.props.tags && this.props.tags.length;
         let partial = this.props.tags && this.props.tags.slice(0, this.state.count)
         let page = window.location.pathname;
-        console.log(tagsCount, partial.length)
         return <div className="tags">
             {page === '/' &&
                 <div className="tag" id="all" onClick={() => {

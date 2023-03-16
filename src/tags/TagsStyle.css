@@ -2,7 +2,7 @@
     width: 90%;
     margin: auto;
     font-family: Caveat;
-    font-size: 18px;
+    font-size: 20px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -20,17 +20,14 @@
     text-decoration: underline;
 }
 #all{
-    border: 1px solid #61dafb;
     cursor: pointer;
     border-radius: 5px;
-    padding: 4px 10px;
-    margin: 5px;
+    margin: 4px;
     width: 27px;
     transition: all;
     transition-duration: 2ms;
 }
 #all:hover{
-    border: 1px solid #519da2;
     cursor: pointer;
     border-radius: 5px;
     padding: 4px 10px;

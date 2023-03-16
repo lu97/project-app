@@ -18,7 +18,7 @@
 }
 .article_title{
     font-size: 20px;
-    font-family: 'PT Sans Narrow';
+    font-family: 'Amatic SC';
     margin: 5px auto;
 }
 .article_img{
@@ -30,6 +30,8 @@
 }
 .article_content_preview{
     text-align: left;
+    font-family: 'Sofia Sans Semi Condensed';
+    font-weight: 300;
 }
 
 @media(max-width: 750px){
@@ -52,7 +54,7 @@
     }
     .article_title{
         font-size: 20px;
-        font-family: 'Amatic SC';
+        font-weight: 600;
         margin: 5px;
     }
     .article_flex_content{
