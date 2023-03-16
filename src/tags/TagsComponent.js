@@ -43,7 +43,7 @@ class TagsComponent extends React.Component {
                              return {count: prevState.count + 5}
                          })
                      }}
-                >...</div>
+                >еще...</div>
             }
         </div>
     }

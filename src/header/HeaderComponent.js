@@ -8,7 +8,7 @@ import {getRandomInt, imageData} from "../utils";
 class HeaderComponent extends React.Component {
     render() {
        let img = imageData[getRandomInt(1, 10)];
-        return <div className="head" onClick={this.props.onClickFunc} style={this.props.style}>
+        return <div className="head" onClick={this.props.onClickFunc}>
             <div className="logo"><img src={img}/></div>
             <div className="text_container">
                 <div className="title">{this.props.headerText}</div>

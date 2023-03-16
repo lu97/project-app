@@ -1,5 +1,8 @@
 .tags{
+    width: 90%;
+    margin: auto;
     font-family: Caveat;
+    font-size: 18px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;

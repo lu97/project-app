@@ -34,10 +34,10 @@
 
 @media(max-width: 750px){
     .articles{
-        display: block;
+        flex-direction: column;
     }
     .article{
-        width: 100%;
+        width: calc( 100% - 10px);
         border: none;
         border-radius: 0;
         border-bottom: 1px solid #282c34;
@@ -46,13 +46,13 @@
         background-color: aliceblue;
         cursor: pointer;
         min-width: 200px;
-        display: block;
     }
     .article_img{
         display: none;
     }
     .article_title{
         font-size: 20px;
+        font-family: 'Amatic SC';
         margin: 5px;
     }
     .article_flex_content{

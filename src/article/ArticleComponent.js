@@ -17,12 +17,14 @@ class ArticleComponent extends React.Component {
                 <HeaderComponent
                     onClickFunc={() => {}}
                     headerText={article.title}
-                    style={{"font-family":  'PT Sans Narrow', "font-size": "15px"}}
                 />
                 <TagsComponent tags={getTagNames(tags, article.tags)}/>
                 <Link to={`/`} className="back">&larr; назад</Link>
                 <div className='article_content'
                      dangerouslySetInnerHTML={{__html: article.content}}/>
+            </div>
+            <div className="moreArticles">
+                Другие статьи по теме:
             </div>
         </div>;
     }
