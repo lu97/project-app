@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&family=Caveat&family=Mulish&family=PT+Sans+Narrow:wght@700&display=swap');
+
 
 @font-face {
   font-family: 'Nexa-Bold';
@@ -7,9 +9,13 @@
   font-family: 'IBM Plex Sans';
   src: local('IBM-Plex-Sans'), url('./sources/fonts/IBM Plex Sans JP/IBMPlexSansJP-Light.ttf') format('ttf');
 }
+@font-face {
+  font-family: 'Aukim';
+  src: local('Aukim'), url('./sources/fonts/Aukim/AukimLight.otf') format('opentype');
+}
 
 body{
-  font-family: IBM-Plex-Sans, serif;
+  font-family: 'PT Sans Narrow';
   width: 90%;
   margin: auto;
   color: #282c34;
@@ -41,6 +47,6 @@ a{
 }
 @media (max-width: 750px){
   body{
-    width: 100%;
+    width: 100%!important;
   }
 }

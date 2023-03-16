@@ -1,4 +1,5 @@
 .tags{
+    font-family: Caveat;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -6,6 +7,9 @@
 .tag{
     margin: 4px;
     color: #282c34;
+    cursor: pointer;
+}
+.show_more{
     cursor: pointer;
 }
 .tag:hover{

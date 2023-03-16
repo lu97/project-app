@@ -11,14 +11,13 @@ import {Link} from "react-router-dom";
 class ArticleComponent extends React.Component {
 
     render() {
-        console.log(this.props);
         const article = this.props.currentArticle
         return <div className="article_info">
             <div className='article_main_info'>
                 <HeaderComponent
-                    onClickFunc={() => {
-                    }}
+                    onClickFunc={() => {}}
                     headerText={article.title}
+                    style={{"font-family":  'PT Sans Narrow', "font-size": "15px"}}
                 />
                 <TagsComponent tags={getTagNames(tags, article.tags)}/>
                 <Link to={`/`} className="back">&larr; назад</Link>

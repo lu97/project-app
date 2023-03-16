@@ -30,8 +30,7 @@
     "e2e": "nightwatch --config nightwatch.js",
     "run-e2e": "concurrently -s first -k \"npm start\" \"sleep 15; npm run e2e\"",
     "test": "./node_modules/.bin/concurrently -k 'npm run server' 'npm run e2e'",
-    "start_network": "npm run server",
-    "postbuild": "react-snap"
+    "start_network": "npm run server"
   },
   "reactSnap": {
     "source": "dist",

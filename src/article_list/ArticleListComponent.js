@@ -15,7 +15,7 @@ class ArticleListComponent extends React.Component {
                 onClickFunc={() => {
                     window.location.reload()
                 }}
-                headerText={"Girls power"}
+                headerText={"My beauty online"}
                 slogan={'Все, что тебе нужно'}
             />
             <div className="selector">
@@ -24,7 +24,8 @@ class ArticleListComponent extends React.Component {
             <div className="articles">
                 {this.props.articles.map((article) => {
                     return <Link to={`/page/${article.id}`}
-                                 className="article" id={article.id}
+                                 className="article"
+                                 key={article.id}
                                  onClick={() => {this.props.setArticle(article)}}>
                         <div className="article_title"> {article.title}</div>
                         <div className="article_img">
