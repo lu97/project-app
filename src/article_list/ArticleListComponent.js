@@ -9,7 +9,7 @@ import {Link} from "react-router-dom";
 import {
     getArticlesCount, getArticlesData,
     getTags
-} from "../intagration_utils";
+} from "../integration_utils";
 import {getRandomColor} from "../utils";
 
 class ArticleListComponent extends React.Component {

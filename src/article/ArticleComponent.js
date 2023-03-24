@@ -5,7 +5,7 @@ import {connect} from "react-redux";
 import HeaderComponent from "../header/HeaderComponent";
 import TagsComponent from "../tags/TagsComponent";
 import {Link} from "react-router-dom";
-import {getArticleById} from "../intagration_utils";
+import {getArticleById} from "../integration_utils";
 import {setArticle} from "../store/Actions";
 
 class ArticleComponent extends React.Component {
