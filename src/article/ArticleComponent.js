@@ -34,7 +34,9 @@ class ArticleComponent extends React.Component {
                             headerText={article.title}
                         />
                         <TagsComponent tags={article.tags}
-                                       onClickFunc={()=>{}}/>
+                                       onClickFunc={()=>{}}
+                                       use_random_color={true}
+                                       use_grid={true}/>
                         <Link to={`/`} className="back">&larr; назад</Link>
                         <div className='article_content'
                              dangerouslySetInnerHTML={{__html: article.content}}/>

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BACK_URL = '__back__'
+const BACK_URL = 'http://localhost:5000'
 
 export async function getArticlesData(start) {
     const res = await axios(

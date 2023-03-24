@@ -10,6 +10,7 @@ import {
     getArticlesCount, getArticlesData,
     getTags
 } from "../intagration_utils";
+import {getRandomColor} from "../utils";
 
 class ArticleListComponent extends React.Component {
     constructor(props) {
@@ -64,7 +65,8 @@ class ArticleListComponent extends React.Component {
                     <TagsComponent tags={this.props.tags}
                                    use_all={true}
                                    use_more={true}
-                                   onClickFunc={()=>{}}/>
+                                   onClickFunc={()=>{}}
+                                   use_random_color={true}/>
                 </div>}
             <div className="articles">
                 {this.props.articles && this.props.articles.map((article, index) => {
@@ -82,9 +84,14 @@ class ArticleListComponent extends React.Component {
                         <div className="article_content_preview"
                              dangerouslySetInnerHTML={{__html: article.preview_content + '...'}}/>
                         <TagsComponent tags={article.tags}
-                                       tag_style={{fontSize: "15px"}}
+                                       tag_style={{fontSize: "20px", margin: "0 4px"}}
+                                       tag_color_range = {["#10164b", "#14380c"]}
                                        container_style={{width: "100%"}}
-                                       onClickFunc={()=>{}}/>
+                                       use_grid={false}
+                                       use_comma={true}
+                                       onClickFunc={()=>{}}
+                                       count={article.tags.length}
+                        />
                     </Link>
                 }) //.sort(() => .5 - Math.random())
                 }
