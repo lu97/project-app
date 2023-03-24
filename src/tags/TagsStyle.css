@@ -2,7 +2,7 @@
     width: 90%;
     margin: auto;
     font-family: Caveat;
-    font-size: 20px;
+    font-size: 23px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -30,8 +30,6 @@
 #all:hover{
     cursor: pointer;
     border-radius: 5px;
-    padding: 4px 10px;
-    margin: 5px;
     width: 27px;
     transition: all;
     transition-duration: 2ms;

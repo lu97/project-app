@@ -1,7 +1,7 @@
 .head{
     cursor: pointer;
     text-align: left;
-    font-size: 24px;
+    font-size: 30px;
     font-weight: bold;
     font-family: 'Amatic SC';
     margin: 4px;
@@ -10,16 +10,20 @@
 }
 .title{
     text-transform: uppercase;
-    margin-left: 10px;
+    margin-left: 5px;
 }
 .head>.logo{
     width: 50px;
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
 }
 .head>.logo>img{
     width: 100%;
+    margin: auto;
 }
 .slogan{
     font-size: 13px;
     font-weight: lighter;
-    margin-left: 10px;
+    margin-left: 5px;
 }

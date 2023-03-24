@@ -24,9 +24,3 @@ export function getRandomColor() {
 }
 
 export const imageData=[girl1, girl3, girl4, girl5, girl6, girl7, girl8, girl9, girl10, girl11]
-
-export function getTagNames(sourceArr, filterArr){
-   return  sourceArr.filter(function(item) {
-        return filterArr.indexOf(item.id) >= 0;
-    });
-}

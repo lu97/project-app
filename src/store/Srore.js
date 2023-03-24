@@ -1,11 +1,12 @@
-import {SET_PAGE, SET_ARTICLE, SET_ARTICLES} from "./Actions";
+import {SET_PAGE, SET_ARTICLE, SET_ARTICLES, SET_ARTICLES_COUNT, SET_TAGS} from "./Actions";
 import {createStore} from "redux";
-import {mock_article_list} from "../sources/mocks/mock_sources";
 
 const initialState = {
     currentPage: "articleList",
     currentArticle: null,
-    articles: mock_article_list
+    articlesCount: 0,
+    articles: [],
+    tags: []
 
 };
 const store = (state = initialState, action) => {
@@ -14,9 +15,15 @@ const store = (state = initialState, action) => {
         case SET_PAGE:
             return {...state, currentPage: action.page};
         case SET_ARTICLES:
-            return {...state, articles: action.articles};
+            let articles = state.articles;
+            articles = articles.concat(action.articles)
+            return {...state, articles: articles};
+        case SET_ARTICLES_COUNT:
+            return {...state, articlesCount: action.count};
         case SET_ARTICLE:
             return {...state, currentArticle: action.article};
+        case SET_TAGS:
+            return {...state, tags: action.tags};
         default:
             return state;
     }
