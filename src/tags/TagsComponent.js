@@ -1,7 +1,7 @@
 import React from 'react';
 import './TagsStyle.css';
 import {bindActionCreators} from "redux";
-import {updateArticlesList} from "../store/Actions";
+import {setArticlesCount, updateArticlesList} from "../store/Actions";
 import {connect} from "react-redux";
 import {getRandomColor} from "../utils";
 import {getArticleByTagId, getArticlesData} from "../integration_utils";
@@ -20,6 +20,7 @@ class TagsComponent extends React.Component {
         (async () => {
             let data = await getArticlesData(0)
             this.props.updateArticlesList(data)
+            this.props.setArticlesCount(data.length)
         })();
     }
 
@@ -27,6 +28,7 @@ class TagsComponent extends React.Component {
         (async () => {
             let data = await getArticleByTagId(id)
             this.props.updateArticlesList(data)
+            this.props.setArticlesCount(data.length)
         })();
     }
 
@@ -93,7 +95,8 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = dispatch => ({
     ...bindActionCreators({
-        updateArticlesList: updateArticlesList
+        updateArticlesList: updateArticlesList,
+        setArticlesCount: setArticlesCount
     }, dispatch)
 });
 
