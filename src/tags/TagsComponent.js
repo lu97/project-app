@@ -26,7 +26,6 @@ class TagsComponent extends React.Component {
     updateArticles(id) {
         (async () => {
             let data = await getArticleByTagId(id)
-            console.log(data);
             this.props.updateArticlesList(data)
         })();
     }
