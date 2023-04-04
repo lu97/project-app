@@ -21,7 +21,6 @@ class ArticleComponent extends React.Component {
         }
     }
 
-
     render() {
         const article = this.props.currentArticle
         return <div className="article_info">
@@ -30,17 +29,20 @@ class ArticleComponent extends React.Component {
                 <div>
                     <div className='article_main_info'>
                         <HeaderComponent
-                            onClickFunc={() => {}}
-                            headerText={article.title}
+                            onClickFunc={() => {window.location.reload()
+                            }}
+                            headerText={"My beauty online"}
+                            slogan={'Все, что тебе нужно'}
                         />
+                        <div className="article_title">{article.title}</div>
                         <TagsComponent tags={article.tags}
-                                       onClickFunc={()=>{}}
                                        use_random_color={true}
+                                       container_style={{width: "100%"}}
                                        use_grid={true}/>
                         <Link to={`/`} className="back">&larr; назад</Link>
                         <div className='article_content'
                              dangerouslySetInnerHTML={{__html: article.content}}/>
-                        <Link to={`/`} className="back">&larr; назад</Link>
+                        <Link to={`/`} className="back" id="bottom_back">&larr; назад</Link>
                     </div>
                     <div className="moreArticles" id="moreArticlesPage">
                         Другие статьи по теме:

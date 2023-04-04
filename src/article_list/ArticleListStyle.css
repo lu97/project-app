@@ -18,8 +18,9 @@
     background-color: #d7ebfc;
 }
 .article_title{
-    font-size: 20px;
-    font-family: 'Amatic SC';
+    font-size: 17px;
+    font-family: 'Mulish';
+    font-weight: 600;
     margin: 5px auto;
 }
 .article_img{
@@ -31,8 +32,7 @@
 }
 .article_content_preview{
     text-align: left;
-    font-family: 'Sofia Sans Semi Condensed';
-    font-weight: 300;
+    font-family: 'Bellota Text';
 }
 .moreArticles{
     text-align: center;
@@ -70,8 +70,6 @@
         display: none;
     }
     .article_title{
-        font-size: 20px;
-        font-weight: 600;
         margin: 5px;
     }
     .article_flex_content{

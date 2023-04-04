@@ -2,7 +2,7 @@ import React from 'react';
 import './ArticleListStyle.css'
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
-import {setArticle, setArticles, setArticlesCount, setTags} from "../store/Actions";
+import {setArticle, addArticlesToList, setArticlesCount, setTags} from "../store/Actions";
 import HeaderComponent from "../header/HeaderComponent";
 import TagsComponent from "../tags/TagsComponent";
 import {Link} from "react-router-dom";
@@ -10,7 +10,6 @@ import {
     getArticlesCount, getArticlesData,
     getTags
 } from "../integration_utils";
-import {getRandomColor} from "../utils";
 
 class ArticleListComponent extends React.Component {
     constructor(props) {
@@ -33,7 +32,7 @@ class ArticleListComponent extends React.Component {
     uploadArticles(start) {
         (async () => {
             let data =await getArticlesData(start)
-            this.props.setArticles(data)
+            this.props.addArticlesToList(data)
         })();
     }
 
@@ -64,6 +63,7 @@ class ArticleListComponent extends React.Component {
                 <div className="selector">
                     <TagsComponent tags={this.props.tags}
                                    use_all={true}
+                                   use_grid={true}
                                    use_more={true}
                                    onClickFunc={()=>{}}
                                    use_random_color={true}/>
@@ -77,7 +77,7 @@ class ArticleListComponent extends React.Component {
                                  onClick={() => {
                                      this.props.setArticle(article)
                                  }}>
-                        <div className="article_title"> {article.title}</div>
+                        <div className="article_title"> {article.title.toUpperCase()}</div>
                         <div className="article_img">
                             {article.preview_image && <img src={`data:image/jpeg;base64,${article.preview_image}`}/>}
                         </div>
@@ -118,7 +118,7 @@ const mapDispatchToProps = dispatch => ({
     ...bindActionCreators({
         setArticle,
         setArticlesCount,
-        setArticles,
+        addArticlesToList: addArticlesToList,
         setTags
     }, dispatch)
 });

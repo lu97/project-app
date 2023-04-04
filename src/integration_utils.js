@@ -39,3 +39,13 @@ export async function getArticleById(id) {
 }
 
 
+export async function getArticleByTagId(tagId) {
+    const res = await axios(
+        {
+            method: "GET",
+            url: `${BACK_URL}/articles/${tagId}`
+        });
+    return await res.data;
+}
+
+

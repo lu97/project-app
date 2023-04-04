@@ -1,4 +1,11 @@
-import {SET_PAGE, SET_ARTICLE, SET_ARTICLES, SET_ARTICLES_COUNT, SET_TAGS} from "./Actions";
+import {
+    SET_PAGE,
+    SET_ARTICLE,
+    ADD_ARTICLES_TO_LIST,
+    SET_ARTICLES_COUNT,
+    SET_TAGS,
+    UPDATE_ARTICLES_LIST
+} from "./Actions";
 import {createStore} from "redux";
 
 const initialState = {
@@ -14,10 +21,13 @@ const store = (state = initialState, action) => {
     switch (action.type) {
         case SET_PAGE:
             return {...state, currentPage: action.page};
-        case SET_ARTICLES:
+        case ADD_ARTICLES_TO_LIST:
             let articles = state.articles;
             articles = articles.concat(action.articles)
             return {...state, articles: articles};
+        case UPDATE_ARTICLES_LIST:
+            console.log(action.articles);
+            return {...state, articles: action.articles};
         case SET_ARTICLES_COUNT:
             return {...state, articlesCount: action.count};
         case SET_ARTICLE:
