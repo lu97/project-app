@@ -7,7 +7,7 @@ export const ADD_MORE_ARTICLES = 'add_more_articles';
 export const SET_TAGS = 'set_tags';
 
 export const setArticle = (article) => ({type: SET_ARTICLE, article});
-export const addMoreArticles = (article_id, moreArticles) => ({type: ADD_MORE_ARTICLES, article_id, moreArticles});
+export const addMoreArticles = ( moreArticles) => ({type: ADD_MORE_ARTICLES, moreArticles});
 export const addArticlesToList = (articles) => ({type: ADD_ARTICLES_TO_LIST, articles});
 export const updateArticlesList = (articles) => ({type: UPDATE_ARTICLES_LIST, articles});
 export const setArticlesCount = (count) => ({type: SET_ARTICLES_COUNT, count});

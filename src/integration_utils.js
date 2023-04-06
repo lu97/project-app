@@ -48,12 +48,12 @@ export async function getArticleByTagId(tagId) {
     return await res.data;
 }
 
-export async function getMoreArticles(tags) {
+export async function getMoreArticles(id, tags) {
     const res = await axios(
         {
             method: "POST",
             url: `${BACK_URL}/more_articles`,
-            data: {tags: tags}
+            data: { article_id: id, tags: tags}
 
         });
     return await res.data;

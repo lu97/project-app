@@ -4,7 +4,7 @@ import {
     ADD_ARTICLES_TO_LIST,
     SET_ARTICLES_COUNT,
     SET_TAGS,
-    UPDATE_ARTICLES_LIST
+    UPDATE_ARTICLES_LIST, ADD_MORE_ARTICLES
 } from "./Actions";
 import {createStore} from "redux";
 
@@ -26,7 +26,6 @@ const store = (state = initialState, action) => {
             articles = articles.concat(action.articles)
             return {...state, articles: articles};
         case UPDATE_ARTICLES_LIST:
-            console.log(action.articles);
             return {...state, articles: action.articles};
         case SET_ARTICLES_COUNT:
             return {...state, articlesCount: action.count};
@@ -34,6 +33,10 @@ const store = (state = initialState, action) => {
             return {...state, currentArticle: action.article};
         case SET_TAGS:
             return {...state, tags: action.tags};
+        case ADD_MORE_ARTICLES:
+            let current = state.currentArticle;
+            current.moreArticles = action.moreArticles
+            return {...state, currentArticle: current};
         default:
             return state;
     }

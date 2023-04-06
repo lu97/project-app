@@ -1,4 +1,4 @@
-.article_info{
+.article_main_info{
     margin: 10px;
 }
 .back{
@@ -24,6 +24,28 @@
     text-align: left;
     font-size: 16px;
     margin: 4px;
+}
+.more_articles_title{
+    font-family: "Bad Script";
+    font-size: 19px;
+    cursor: pointer;
+}
+.more_articles{
+    font-family: "Bad Script";
+    font-style: italic;
+    font-weight: bold;
+    font-size: 22px;
+    color: #205b02;
+}
+.more_articles:hover{
+    background-color: #e7ffc4;
+}
+.more_articles_part{
+    padding: 10px;
+    margin-top: 10px;
+    text-align: left;
+    background-color: #f2fdde;
+    cursor: auto;
 }
 .article_info .article_title{
     margin-top: 5px;
