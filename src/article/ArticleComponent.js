@@ -5,20 +5,27 @@ import {connect} from "react-redux";
 import HeaderComponent from "../header/HeaderComponent";
 import TagsComponent from "../tags/TagsComponent";
 import {Link} from "react-router-dom";
-import {getArticleById} from "../integration_utils";
-import {setArticle} from "../store/Actions";
+import {getArticleById, getMoreArticles} from "../integration_utils";
+import {addMoreArticles, setArticle} from "../store/Actions";
 
 class ArticleComponent extends React.Component {
     componentDidMount() {
-        window.scrollTo(0, 0)
-        if (!this.props.currentArticle) {
-            (async () => {
+        (async () => {
+            window.scrollTo(0, 0)
+            if (!this.props.currentArticle) {
                 let articleId = window.location.href.split('/')[4]
                 console.log(window.location.href)
                 let data = await getArticleById(articleId)
                 this.props.setArticle(data)
-            })();
-        }
+            }
+            console.log(this.props.currentArticle)
+            if (this.props.currentArticle.moreArticles === undefined){
+                let tags = this.props.currentArticle.tags.map((tag)=>(tag.id))
+                console.log(tags);
+                let more_articles = await getMoreArticles(tags)
+                this.props.addMoreArticles(this.props.currentArticle.id, more_articles)
+            }
+        })();
     }
 
     render() {
@@ -29,7 +36,8 @@ class ArticleComponent extends React.Component {
                 <div>
                     <div className='article_main_info'>
                         <HeaderComponent
-                            onClickFunc={() => {window.location.reload()
+                            onClickFunc={() => {
+                                window.location.reload()
                             }}
                             headerText={"My beauty online"}
                             slogan={'Все, что тебе нужно'}
@@ -63,7 +71,8 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = dispatch => ({
     ...bindActionCreators({
-        setArticle
+        setArticle,
+        addMoreArticles
     }, dispatch)
 });
 

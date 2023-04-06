@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BACK_URL = '__back__'
+const BACK_URL = 'http://localhost:5000'
 
 export async function getArticlesData(start) {
     const res = await axios(
@@ -44,6 +44,17 @@ export async function getArticleByTagId(tagId) {
         {
             method: "GET",
             url: `${BACK_URL}/articles/${tagId}`
+        });
+    return await res.data;
+}
+
+export async function getMoreArticles(tags) {
+    const res = await axios(
+        {
+            method: "POST",
+            url: `${BACK_URL}/more_articles`,
+            data: {tags: tags}
+
         });
     return await res.data;
 }
