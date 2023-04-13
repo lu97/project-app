@@ -21,7 +21,6 @@ class ArticleListComponent extends React.Component {
     }
 
     componentDidMount() {
-        console.log(this.props.articles);
         if (this.props.articles.length === 0) {
             this.uploadArticles(0)
             this.uploadCount();

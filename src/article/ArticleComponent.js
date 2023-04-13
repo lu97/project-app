@@ -7,6 +7,7 @@ import TagsComponent from "../tags/TagsComponent";
 import {Link} from "react-router-dom";
 import {getArticleById, getMoreArticles} from "../integration_utils";
 import {addMoreArticles, setArticle} from "../store/Actions";
+import {isNotEmpty} from "../utils";
 
 class ArticleComponent extends React.Component {
     constructor(props) {
@@ -15,6 +16,15 @@ class ArticleComponent extends React.Component {
             article: null
         }
     }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.currentArticle
+            && this.props.currentArticle
+            && prevProps.currentArticle.id !== this.props.currentArticle.id) {
+            window.location.reload()
+        }
+    }
+
 
     componentDidMount() {
         (async () => {
@@ -25,7 +35,6 @@ class ArticleComponent extends React.Component {
                 let data = await getArticleById(articleId)
                 this.props.setArticle(data)
             }
-            console.log(this.props.currentArticle)
             if (this.props.currentArticle && this.props.currentArticle.moreArticles === undefined) {
                 let tags = this.props.currentArticle.tags.map((tag) => (tag.id))
                 let more_articles = await getMoreArticles(this.props.currentArticle.id, tags)
@@ -61,7 +70,7 @@ class ArticleComponent extends React.Component {
                              dangerouslySetInnerHTML={{__html: this.state.article.content}}/>
                         <Link to={`/`} className="back" id="bottom_back">&larr; назад</Link>
                     </div>
-                    {this.state.article.moreArticles &&
+                    {isNotEmpty(this.state.article.moreArticles) &&
                         <div className="more_articles_part">
                             <div className="more_articles">Другие статьи по теме:</div>
                             {this.state.article.moreArticles.map((article, index) => {
