@@ -26,11 +26,18 @@
     margin: 4px;
 }
 .more_articles_title{
+    border-bottom: 2px dashed #a7a8a7;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 5px 10px;
     font-family: "Bad Script";
+    font-weight: bold;
     font-size: 19px;
     cursor: pointer;
 }
 .more_articles{
+    padding: 0 10px;
     font-family: "Bad Script";
     font-style: italic;
     font-weight: bold;
@@ -41,10 +48,8 @@
     background-color: #e7ffc4;
 }
 .more_articles_part{
-    padding: 10px;
     margin-top: 10px;
     text-align: left;
-    background-color: #f2fdde;
     cursor: auto;
 }
 .article_info .article_title{

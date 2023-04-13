@@ -8,6 +8,15 @@ import girl8 from "./sources/icons/girl8.svg";
 import girl9 from "./sources/icons/girl9.svg";
 import girl10 from "./sources/icons/girl10.svg";
 import girl11 from "./sources/icons/girl11.svg";
+import avocados from "./sources/icons/avocados.svg";
+import banana from "./sources/icons/banana.svg";
+import blueberry from "./sources/icons/blueberry.svg";
+import broccoli from "./sources/icons/broccoli.svg";
+import carrot from "./sources/icons/carrot.svg";
+import chilli from "./sources/icons/chilli.svg";
+import corn from "./sources/icons/corn.svg";
+import food from "./sources/icons/food.svg";
+import garlic from "./sources/icons/garlic.svg";
 
 export function getRandomInt(min, max) {
     min = Math.ceil(min);
@@ -23,7 +32,8 @@ export function getRandomColor() {
     return color;
 }
 
-export const imageData=[girl1, girl3, girl4, girl5, girl6, girl7, girl8, girl9, girl10, girl11]
+export const imageData=[girl1, girl3, girl4, girl5, girl6, girl7, girl8, girl9, girl10, girl11];
+export const fruitsImageData=[banana, avocados, blueberry, broccoli, carrot, chilli, corn, food, garlic]
 
 
 export function isNotEmpty(array){

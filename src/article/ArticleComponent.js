@@ -7,7 +7,7 @@ import TagsComponent from "../tags/TagsComponent";
 import {Link} from "react-router-dom";
 import {getArticleById, getMoreArticles} from "../integration_utils";
 import {addMoreArticles, setArticle} from "../store/Actions";
-import {isNotEmpty} from "../utils";
+import {fruitsImageData, getRandomInt, imageData, isNotEmpty} from "../utils";
 
 class ArticleComponent extends React.Component {
     constructor(props) {
@@ -53,13 +53,13 @@ class ArticleComponent extends React.Component {
             {this.state.article &&
                 <div>
                     <div className='article_main_info'>
-                        <HeaderComponent
-                            onClickFunc={() => {
-                                window.location.reload()
-                            }}
-                            headerText={"My beauty online"}
-                            slogan={'Все, что тебе нужно'}
-                        />
+                       <Link to="/">
+                           <HeaderComponent
+                               onClickFunc={() => {}}
+                               headerText={"My beauty online"}
+                               slogan={'Все, что тебе нужно'}
+                           />
+                       </Link>
                         <div className="article_title">{this.state.article.title}</div>
                         <TagsComponent tags={this.state.article.tags}
                                        use_random_color={true}
@@ -76,11 +76,18 @@ class ArticleComponent extends React.Component {
                             {this.state.article.moreArticles.map((article, index) => {
                                 return <Link to={`/page/${article.id}`}
                                              key={index}
+                                             style={{backgroundColor: index % 2 === 0 ? "#f2faf9": "#f6fcf5"}}
                                              className="more_articles_title"
                                              onClick={() => {
                                                  this.props.setArticle(article)
                                              }}>
-                                    {article.title}
+                                    <div><img
+                                        src={fruitsImageData[getRandomInt(0, 8)]}
+                                        width={30}
+                                        height={30}
+                                        style={{marginRight: "4px"}}/>
+                                    </div>
+                                    <div>{article.title}</div>
                                 </Link>
                             })}
                         </div>
