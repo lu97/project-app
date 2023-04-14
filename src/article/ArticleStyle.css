@@ -1,5 +1,6 @@
 .article_main_info{
-    margin: 10px;
+    width: 70%;
+    margin: 10px auto;
 }
 .back{
     display: block;
@@ -22,8 +23,16 @@
 }
 .article_content{
     text-align: left;
-    font-size: 16px;
+    font-size: 18px;
     margin: 4px;
+}
+.article_content img {
+    width: 30%;
+    min-width: 200px;
+    float: left;
+    margin-right: 10px;
+    border: 1px solid #818080;
+    background-color: #efeff1;
 }
 .more_articles_title{
     border-bottom: 2px dashed #a7a8a7;
@@ -32,7 +41,6 @@
     align-items: center;
     padding: 5px 10px;
     font-family: "Bad Script";
-    font-weight: bold;
     font-size: 19px;
     cursor: pointer;
 }
@@ -48,9 +56,10 @@
     background-color: #e7ffc4;
 }
 .more_articles_part{
-    margin-top: 10px;
     text-align: left;
     cursor: auto;
+    width: 70%;
+    margin: 10px auto;
 }
 .article_info .article_title{
     margin-top: 5px;
@@ -85,4 +94,15 @@
     height: 30px;
     display: inline-block;
     content: ""
+}
+
+@media(max-width: 750px){
+    .article_main_info{
+        margin: 10px;
+        width: auto;
+    }
+    .more_articles_part{
+        margin-top: 10px;
+        width: auto;
+    }
 }

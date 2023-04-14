@@ -35,11 +35,40 @@ export function getRandomColor() {
 export const imageData=[girl1, girl3, girl4, girl5, girl6, girl7, girl8, girl9, girl10, girl11];
 export const fruitsImageData=[banana, avocados, blueberry, broccoli, carrot, chilli, corn, food, garlic]
 
-
 export function isNotEmpty(array){
     return array && array.length > 0
 }
 
 export function isEmpty(array){
     return !isNotEmpty(array)
+}
+
+export function get_cards_cover(size){
+     const sizeVariation = [ 20, 40, 60];
+     let result = [];
+     let i = 0;
+     let f = 0
+     while (i < size){
+         let element = sizeVariation[getRandomInt(0, 3)];
+         if (element + f > 80){
+             continue
+         }
+         if (element + f < 80){
+             result.push(element);
+             f+=element
+             i++;
+         }
+         if (element + f === 80){
+             result.push(element);
+             f=0;
+             i++;
+         }
+     }
+    // eslint-disable-next-line array-callback-return
+    result = result.map((elem)=>{
+        if(elem === 20) return 'small';
+        if(elem === 40) return 'medium';
+        if(elem === 60) return 'big';
+    })
+     return result
 }

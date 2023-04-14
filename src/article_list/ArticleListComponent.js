@@ -10,6 +10,8 @@ import {
     getArticlesCount, getArticlesData,
     getTags
 } from "../integration_utils";
+import {get_cards_cover} from "../utils";
+import Seo from "../Seo";
 
 class ArticleListComponent extends React.Component {
     constructor(props) {
@@ -30,7 +32,7 @@ class ArticleListComponent extends React.Component {
 
     uploadArticles(start) {
         (async () => {
-            let data =await getArticlesData(start)
+            let data = await getArticlesData(start)
             this.props.addArticlesToList(data)
         })();
     }
@@ -50,7 +52,18 @@ class ArticleListComponent extends React.Component {
     }
 
     render() {
+        let cover = get_cards_cover(this.props.articles.length)
         return <div>
+            <Seo
+                description={"Множество интересных и полезных статей,\n" +
+                    "                      написанных экспертами в области психологии, медицины и косметологии.\n" +
+                    "                      Мы поможем вам улучшить свои отношения, научим, как сохранять здоровье и красоту,\n" +
+                    "                      а также поделимся секретами о том, как привлекать внимание окружающих.\n" +
+                    "                      Наша миссия - помочь вам стать лучше и счастливее во всех сферах жизни!"}
+                title={"My beuty online. Все, что тебе нужно"}
+                pathSlug={'/'}
+                keywords={['красота', 'здоровье', 'бьюти', 'быт', 'отношения', '']}
+            />
             <HeaderComponent
                 onClickFunc={() => {
                     window.location.reload()
@@ -64,31 +77,36 @@ class ArticleListComponent extends React.Component {
                                    use_all={true}
                                    use_grid={true}
                                    use_more={true}
-                                   onClickFunc={()=>{}}
+                                   onClickFunc={() => {
+                                   }}
                                    use_random_color={true}/>
                 </div>}
             <div className="articles">
                 {this.props.articles && this.props.articles.map((article, index) => {
                     return <Link to={`/page/${article.id}`}
-                                 className="article"
-                                 style={index % 2 == 0 ? {"backgroundColor": "aliceblue"}: {"backgroundColor": "#f5f0ff"}}
+                                 id="article"
+                                 className={`${cover[index]}_article_card`}
+                                 style={index % 2 == 0 ? {"backgroundColor": "aliceblue"} : {"backgroundColor": "#f5f0ff"}}
                                  key={article.id}
                                  onClick={() => {
                                      this.props.setArticle(article)
                                  }}>
                         <div className="article_title"> {article.title.toUpperCase()}</div>
-                        <div className="article_img">
-                            {article.preview_image && <img src={`data:image/jpeg;base64,${article.preview_image}`}/>}
-                        </div>
+                        {article.preview_image &&
+                            <div className="article_img">
+                                <img src={article.preview_image}/>
+                            </div>
+                        }
                         <div className="article_content_preview"
                              dangerouslySetInnerHTML={{__html: article.preview_content + '...'}}/>
                         <TagsComponent tags={article.tags}
                                        tag_style={{fontSize: "20px", margin: "0 4px"}}
-                                       tag_color_range = {["#10164b", "#14380c"]}
+                                       tag_color_range={["#10164b", "#14380c"]}
                                        container_style={{width: "100%"}}
                                        use_grid={false}
                                        use_comma={true}
-                                       onClickFunc={()=>{}}
+                                       onClickFunc={() => {
+                                       }}
                                        count={article.tags.length}
                         />
                     </Link>
